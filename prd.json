@@ -1,0 +1,225 @@
+{
+  "project": "devlens",
+  "feature": "MVP Launch",
+  "branchName": "main",
+  "createdAt": "2026-01-11",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Setup monorepo structure with pnpm workspaces",
+      "description": "Create the project structure with apps/web, apps/extension, packages/shared, packages/claude-plugin",
+      "acceptanceCriteria": [
+        "pnpm workspace configured",
+        "TypeScript configured for all packages",
+        "Shared types package working",
+        "Build passes"
+      ],
+      "priority": 1,
+      "complexity": "medium",
+      "estimatedLoops": 2,
+      "passes": false
+    },
+    {
+      "id": "US-002",
+      "title": "Create Next.js 15 web app with Clerk auth",
+      "description": "Setup the dashboard app with Next.js 15 App Router and Clerk authentication",
+      "acceptanceCriteria": [
+        "Next.js 15 with App Router",
+        "Clerk integration working",
+        "Sign in/up pages functional",
+        "Middleware protecting routes",
+        "Build passes"
+      ],
+      "priority": 1,
+      "complexity": "medium",
+      "estimatedLoops": 2,
+      "passes": false
+    },
+    {
+      "id": "US-003",
+      "title": "Setup Vercel Postgres database with schema",
+      "description": "Create database schema for users, projects, and feedback",
+      "acceptanceCriteria": [
+        "Vercel Postgres connected",
+        "Drizzle ORM configured",
+        "Schema migrations working",
+        "Users, projects, feedback tables created",
+        "Build passes"
+      ],
+      "priority": 1,
+      "complexity": "medium",
+      "estimatedLoops": 2,
+      "passes": false
+    },
+    {
+      "id": "US-004",
+      "title": "Create API routes for feedback and projects",
+      "description": "Implement REST API for feedback submission, listing, and project management",
+      "acceptanceCriteria": [
+        "POST /api/feedback working",
+        "GET /api/feedback with filtering",
+        "PUT /api/feedback/:id for status update",
+        "CRUD for projects",
+        "API key authentication for extension",
+        "Build passes"
+      ],
+      "priority": 1,
+      "complexity": "high",
+      "estimatedLoops": 3,
+      "passes": false
+    },
+    {
+      "id": "US-005",
+      "title": "Setup Vercel Blob for screenshot storage",
+      "description": "Configure Vercel Blob to store feedback screenshots",
+      "acceptanceCriteria": [
+        "Blob storage connected",
+        "Upload endpoint working",
+        "URLs returned for stored images",
+        "Cleanup for expired images",
+        "Build passes"
+      ],
+      "priority": 1,
+      "complexity": "low",
+      "estimatedLoops": 1,
+      "passes": false
+    },
+    {
+      "id": "US-006",
+      "title": "Create Chrome extension with DevLens branding",
+      "description": "Build the Chrome extension with new branding, popup UI, and screenshot capture",
+      "acceptanceCriteria": [
+        "Manifest V3 extension",
+        "DevLens branded icon and popup",
+        "Screenshot capture working",
+        "Element pointer/highlighter",
+        "Console error capture",
+        "Feedback form in popup",
+        "Build passes"
+      ],
+      "priority": 1,
+      "complexity": "high",
+      "estimatedLoops": 4,
+      "passes": false
+    },
+    {
+      "id": "US-007",
+      "title": "Implement feedback submission from extension",
+      "description": "Connect extension to backend API to submit feedback with screenshots",
+      "acceptanceCriteria": [
+        "Extension authenticates with API key",
+        "Screenshot uploaded to Blob",
+        "Feedback record created",
+        "Success/error feedback in popup",
+        "URL-based project routing",
+        "Build passes"
+      ],
+      "priority": 1,
+      "complexity": "medium",
+      "estimatedLoops": 2,
+      "passes": false
+    },
+    {
+      "id": "US-008",
+      "title": "Create dashboard UI for feedback management",
+      "description": "Build the web dashboard to view and manage feedback",
+      "acceptanceCriteria": [
+        "Feedback list with filters",
+        "Feedback detail view with screenshot",
+        "Status update (pending/resolved)",
+        "Project selector",
+        "Responsive design",
+        "Build passes"
+      ],
+      "priority": 2,
+      "complexity": "high",
+      "estimatedLoops": 3,
+      "passes": false
+    },
+    {
+      "id": "US-009",
+      "title": "Create project management UI",
+      "description": "Build UI for creating and managing projects with domain mappings",
+      "acceptanceCriteria": [
+        "Create project form",
+        "Domain pattern configuration",
+        "Edit/delete projects",
+        "API key display/regenerate",
+        "Build passes"
+      ],
+      "priority": 2,
+      "complexity": "medium",
+      "estimatedLoops": 2,
+      "passes": false
+    },
+    {
+      "id": "US-010",
+      "title": "Create Claude Code plugin for DevLens",
+      "description": "Build a Claude Code plugin to fetch and display feedback",
+      "acceptanceCriteria": [
+        "Plugin structure created",
+        "devlens:list command",
+        "devlens:view command",
+        "devlens:resolve command",
+        "API authentication",
+        "Feedback displayed in terminal",
+        "Build passes"
+      ],
+      "priority": 2,
+      "complexity": "high",
+      "estimatedLoops": 3,
+      "passes": false
+    },
+    {
+      "id": "US-011",
+      "title": "Add Stripe subscription management",
+      "description": "Integrate Stripe for subscription tiers (Free, Pro, Team)",
+      "acceptanceCriteria": [
+        "Stripe checkout integration",
+        "Subscription tiers configured",
+        "Usage limits enforced",
+        "Customer portal working",
+        "Webhook handling",
+        "Build passes"
+      ],
+      "priority": 3,
+      "complexity": "high",
+      "estimatedLoops": 3,
+      "passes": false
+    },
+    {
+      "id": "US-012",
+      "title": "Create landing page for DevLens",
+      "description": "Build a marketing landing page with pricing and signup",
+      "acceptanceCriteria": [
+        "Hero section with demo",
+        "Features showcase",
+        "Pricing table",
+        "Testimonials section",
+        "CTA to signup",
+        "SEO optimized",
+        "Build passes"
+      ],
+      "priority": 3,
+      "complexity": "medium",
+      "estimatedLoops": 2,
+      "passes": false
+    },
+    {
+      "id": "US-013",
+      "title": "Deploy to Vercel production",
+      "description": "Setup Vercel project and deploy to production",
+      "acceptanceCriteria": [
+        "Vercel project created",
+        "Environment variables configured",
+        "Custom domain (optional)",
+        "Successful production deployment",
+        "All features working in prod"
+      ],
+      "priority": 1,
+      "complexity": "low",
+      "estimatedLoops": 1,
+      "passes": false
+    }
+  ]
+}
