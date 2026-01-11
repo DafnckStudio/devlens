@@ -57,12 +57,20 @@ const clerkAppearance = {
   },
 };
 
+function isValidClerkKey(key: string | undefined): boolean {
+  if (!key) return false;
+  if (key === 'pk_test_placeholder') return false;
+  // Clerk keys are base64-like and typically longer than 50 chars
+  return (key.startsWith('pk_test_') || key.startsWith('pk_live_')) && key.length > 50;
+}
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const hasClerkKey = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+  const clerkKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+  const hasValidClerkKey = isValidClerkKey(clerkKey);
 
   const body = (
     <html lang="en" className="dark">
@@ -74,7 +82,7 @@ export default function RootLayout({
     </html>
   );
 
-  if (!hasClerkKey) {
+  if (!hasValidClerkKey) {
     return body;
   }
 

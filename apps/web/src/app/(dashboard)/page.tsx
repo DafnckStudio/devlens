@@ -5,6 +5,9 @@ import { eq, count, and, gte } from 'drizzle-orm';
 import { Camera, FolderKanban, CheckCircle2, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 
+// Force dynamic rendering to avoid build-time auth issues
+export const dynamic = 'force-dynamic';
+
 export default async function DashboardPage() {
   const { userId } = await auth();
   if (!userId) redirect('/sign-in');
