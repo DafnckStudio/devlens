@@ -47,30 +47,40 @@ export const metadata: Metadata = {
   },
 };
 
+const clerkAppearance = {
+  variables: {
+    colorPrimary: '#6366F1',
+    colorBackground: '#0F172A',
+    colorText: '#F8FAFC',
+    colorInputBackground: '#1E293B',
+    colorInputText: '#F8FAFC',
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const hasClerkKey = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+
+  const body = (
+    <html lang="en" className="dark">
+      <body
+        className={`${inter.variable} ${spaceMono.variable} font-sans antialiased bg-dark-900 text-white`}
+      >
+        {children}
+      </body>
+    </html>
+  );
+
+  if (!hasClerkKey) {
+    return body;
+  }
+
   return (
-    <ClerkProvider
-      appearance={{
-        variables: {
-          colorPrimary: '#6366F1',
-          colorBackground: '#0F172A',
-          colorText: '#F8FAFC',
-          colorInputBackground: '#1E293B',
-          colorInputText: '#F8FAFC',
-        },
-      }}
-    >
-      <html lang="en" className="dark">
-        <body
-          className={`${inter.variable} ${spaceMono.variable} font-sans antialiased bg-dark-900 text-white`}
-        >
-          {children}
-        </body>
-      </html>
+    <ClerkProvider appearance={clerkAppearance}>
+      {body}
     </ClerkProvider>
   );
 }

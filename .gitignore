@@ -43,3 +43,5 @@ coverage/
 
 # Chrome extension
 apps/extension/dist/
+.vercel
+.env*.local
